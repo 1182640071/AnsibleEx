@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+           http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+<!--     Dubbo全局配置
+    <dubbo:application name="jarspring" version="1.0" />
+    <dubbo:registry address="${dubbo.registry.address}" />
+    <dubbo:consumer version="${application.version}" check="false"/>
+    <dubbo:provider timeout="10000" retries="0" version="${application.version}" />
+    <dubbo:protocol name="dubbo" serialization="kryo" port="${dubbo.protocol.port}" />
+    <dubbo:monitor protocol="registry" />
+
+    使用注解自动注册和注入bean，并启用Dubbo的注解
+    <dubbo:annotation />
+    <context:component-scan base-package="com.tinet.tcc.app.**.service">
+        <context:include-filter type="annotation" expression="com.alibaba.dubbo.config.annotation.Service" />
+    </context:component-scan> -->
+
+  
+
+
+    <!-- 服务方应用名 -->  
+    <dubbo:application name="AnsibleMiddleware" />  
+
+    <!-- 使用redis注册中心暴露发现服务地址 -->
+    <dubbo:registry address="redis://127.0.0.1:6379"/>
+    <dubbo:protocol name="dubbo" port="20880" />
+    
+<!--         使用注解自动注册和注入bean，并启用Dubbo的注解	-->
+	<dubbo:annotation package="ansibleEx.AnsibleMiddleware"></dubbo:annotation>
+   
+
+</beans>
