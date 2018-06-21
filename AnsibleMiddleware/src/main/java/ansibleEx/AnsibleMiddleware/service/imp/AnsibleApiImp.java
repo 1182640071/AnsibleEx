@@ -15,7 +15,7 @@ import net.sf.json.JSONObject;
  * date 2018.06.21
  * ansible接口调用操作方法，密码加密、解密入口方法实现
  * */
-@Service
+@Service(timeout=30000,cluster="failfast")
 public class AnsibleApiImp implements AnsibleApi{
 	//ansible接口地址
 	private String url = "https://172.16.22.24/ansible/api1.0";
@@ -29,6 +29,7 @@ public class AnsibleApiImp implements AnsibleApi{
 
 	public String ApiEntrance(String user, String passwd, String host, String module, String cmd) {
 		String httpOrgCreateTest = url;
+		String result = null;
 		if(""!=passwd && !"".equals(passwd)&&passwd != null){
 			passwd = Secret.decryptBasedDes(passwd);
 		}
@@ -50,11 +51,12 @@ public class AnsibleApiImp implements AnsibleApi{
 		}
 		try {
 			System.out.println(new String(httpOrgCreateTestRtn.getBytes() , charset));
+			result = new String(httpOrgCreateTestRtn.getBytes() , charset);
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return result;
 	}
 
 	public static void main(String[] args){
