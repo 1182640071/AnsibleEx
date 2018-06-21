@@ -1,0 +1,9 @@
+# AnsibleEx
+ansible二次开发，解决接口不灵活，改善密码使用机制，增加安全性和灵活性
+
+python + web.py框架实现ansible的https接口，增加ansible接口灵活性
+java spring dubbo框架实现ansible接口调用，注册至redis中供消费者使用，且完成密码的加密解密过程，消费者使用加密过的密码
+
+通过python和java2个模块实现服务器真正密码不被人知晓的情况下完成服务器集群操作。
+且提供消费者的密码无法直接操作ansible的api也无法登陆服务器
+即使消费者密码泄漏，也无法对服务器和ansible的接口进行任何操作，即使dubbo注册被发现，在不知道服务者的class方法参数情况下，也无法对ansible和服务器做任何操作。
