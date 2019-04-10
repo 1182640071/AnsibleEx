@@ -5,23 +5,6 @@
            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
            http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-<!--     Dubbo全局配置
-    <dubbo:application name="jarspring" version="1.0" />
-    <dubbo:registry address="${dubbo.registry.address}" />
-    <dubbo:consumer version="${application.version}" check="false"/>
-    <dubbo:provider timeout="10000" retries="0" version="${application.version}" />
-    <dubbo:protocol name="dubbo" serialization="kryo" port="${dubbo.protocol.port}" />
-    <dubbo:monitor protocol="registry" />
-
-    使用注解自动注册和注入bean，并启用Dubbo的注解
-    <dubbo:annotation />
-    <context:component-scan base-package="com.tinet.tcc.app.**.service">
-        <context:include-filter type="annotation" expression="com.alibaba.dubbo.config.annotation.Service" />
-    </context:component-scan> -->
-
-  
-
-
     <!-- 服务方应用名 -->  
     <dubbo:application name="AnsibleMiddleware" />  
 
